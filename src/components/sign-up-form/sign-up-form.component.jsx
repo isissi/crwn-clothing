@@ -1,11 +1,12 @@
 import { useState } from "react";
+import FormInput from "../form-input/form-input.component";
 
 import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from "../../utils/firebase.utils";
 
 const defaultFormFields = {
   displayName: '',
-  email: '', 
-  password: '', 
+  email: '',
+  password: '',
   confirmPassword: ''
 }
 
@@ -24,11 +25,11 @@ const SignUpForm = () => {
     }
 
     try {
-      const {user} = await createAuthUserWithEmailAndPassword(email, password);
+      const { user } = await createAuthUserWithEmailAndPassword(email, password);
 
       await createUserDocumentFromAuth(user, { displayName })
-
-    } catch(error) {
+      resetFormFields();
+    } catch (error) {
 
       if (error.code === 'auth/email-already-in-use') {
         alert('Cannot create user, email already in use')
@@ -41,26 +42,61 @@ const SignUpForm = () => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setFormFields({...formFields, [name]: value})
+    setFormFields({ ...formFields, [name]: value })
   }
 
 
   return (
     <div>
       <h1>Sign up with your email and password</h1>
-      
+
       <form onSubmit={handleSubmit}>
-        <lable>Display Name</lable>
-        <input type="text" required onChange={handleChange} name='displayName' value={displayName}></input>
+        <FormInput 
+          label='Display Name' 
+          inputOptions={{
+            type: "text",
+            required: true,
+            onChange: handleChange,
+            name: 'displayName',
+            value: displayName 
+          }}
+        />
 
-        <lable>Email</lable>
-        <input type="email" required onChange={handleChange} name='email' value={email}></input>
+        <FormInput 
+          label='Email' 
+          inputOptions={{
+            type: "email",
+            required: true,
+            onChange: handleChange, 
+            name: 'email', 
+            value: email
+          }}
+          
+        />
 
-        <lable>Password</lable>
-        <input type="password" required onChange={handleChange} name='password' value={password}></input>
+        <FormInput 
+          label='Password'
+          inputOptions={{
+            type: "password",
+            required: true,
+            onChange: handleChange, 
+            name: 'password',
+            value: password 
+          }} 
+          
+        />
 
-        <lable>Confirm Password</lable>
-        <input type="password" required onChange={handleChange} name='confirmPassword' value={confirmPassword}></input>
+        <FormInput 
+          label='Confirm Password' 
+          inputOptions={{
+            type: "password",
+            required: true,
+            onChange: handleChange,
+            name: 'confirmPassword', 
+            value: confirmPassword
+          }} 
+         
+        />
 
         <button type="submit">Sign Up</button>
       </form>
