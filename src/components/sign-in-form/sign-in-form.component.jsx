@@ -3,39 +3,49 @@ import { useState } from "react"
 import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
 
-import { signInWithGooglePopup, createUserDocumentFromAuth } from "../../utils/firebase.utils";
+import { signInWithGooglePopup, createUserDocumentFromAuth, signInAuthUserWithEmailAndPassword } from "../../utils/firebase.utils";
 
 import './sign-in-form.styles.scss'
 
-const defaultSignInFields = {
+const defaultFormFields = {
   email: '', 
   password:''
 }
 
 const SignInForm = () => {
-  const [signInFields, setSignInFields] = useState(defaultSignInFields);
-  const {email, password} = defaultSignInFields;
+  const [formFields, setFormFields] = useState(defaultFormFields);
+  const {email, password} = formFields;
 
   const SignInWithGoogle = async () => {
     const {user} = await signInWithGooglePopup();
     const userDocRef = createUserDocumentFromAuth(user);
   }
 
-  const handleChange = (event) => {
-    const {name, value} = event.target; 
-    setSignInFields({...signInFields, [name]: value})
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
+    try {
+      const res = await signInAuthUserWithEmailAndPassword(email, password); 
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormFields({ ...formFields, [name]: value })
   }
 
   return (
     <div className="sign-up-container">
       <h2>I already have an account</h2>
       <span>Sign in with your email and password</span>
-      <form>
+      <form onSubmit={handleSubmit}>
         <FormInput 
           label='Email' 
           inputOptions={{
-            type: "email",
+            type: "s",
             required: true,
             onChange: handleChange, 
             name: 'email', 
