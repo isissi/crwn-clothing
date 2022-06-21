@@ -23,6 +23,7 @@ const SignUpForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    console.log('submit');
     if (password !== confirmPassword) {
       alert('password do not match');
     }
@@ -102,7 +103,7 @@ const SignUpForm = () => {
          
         />
 
-        <Button type="submit">Sign Up</Button>
+        <Button type='submit'>Sign Up</Button>
       </form>
     </div>
   )
