@@ -28,7 +28,7 @@ const removeCartItem = (cartItems, cartItemToRemove) => {
   );
 }
 
-const emptyCart = (cartItems, cartItemToRemove) => {
+const emptyCartItem = (cartItems, cartItemToRemove) => {
   return cartItems.filter(cartItem => cartItem.id !== cartItemToRemove.id);
 }
 
@@ -61,7 +61,7 @@ export const CartProvider = ({ children }) => {
   }
 
   const emtpyItemFromCart = (cartItemToRemove) => {
-    setCartItems(emptyCart(cartItems, cartItemToRemove));
+    setCartItems(emptyCartItem(cartItems, cartItemToRemove));
   }
 
   const value = { isCartOpen, setIsCartOpen, addItemToCart, removeItemFromCart, emtpyItemFromCart, cartItems, cartItemCount };
