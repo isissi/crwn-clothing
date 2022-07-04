@@ -4,7 +4,7 @@ import ProductCard from '../product-card/product-card.component';
 
 const CategoryPreview = ({ title,products}) => {
   return (
-    <div className='category-preiew-container'>
+    <div className='category-preview-container'>
       <h2>
         <span className='title'>{title.toUpperCase()}</span>
       </h2>
