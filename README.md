@@ -21,7 +21,7 @@ The page is deployed using Netlify at: https://subtle-axolotl-0a912d.netlify.app
 1. Create user account
 ![Create accoount](https://github.com/isissi/crwn-clothing/blob/main/public/gif/1.gif?raw=true "Create accoount")
 
-2. Log in use Google account
+2. Log in with Google account
 ![Log in](https://github.com/isissi/crwn-clothing/blob/main/public/gif/2.gif?raw=true "Log in")
 
 3. Add products to the shopping cart
