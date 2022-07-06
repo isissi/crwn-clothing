@@ -19,16 +19,16 @@ The page is deployed using Netlify at: https://subtle-axolotl-0a912d.netlify.app
 
 ## Gif Screenshots
 1. Create user account
-![Create accoount](https://github.com/isissi/accuenergy-code-submission/blob/main/public/screenshots/getGeolocation.gif?raw=true "Create accoount")
+![Create accoount](https://github.com/isissi/crwn-clothing/blob/main/public/gif/1.gif?raw=true "Create accoount")
 
 2. Log in use Google account
-![Log in](https://github.com/isissi/accuenergy-code-submission/blob/main/public/screenshots/searchLocation.gif?raw=true "Log in")
+![Log in](https://github.com/isissi/crwn-clothing/blob/main/public/gif/2.gif?raw=true "Log in")
 
 3. Add products to the shopping cart
-![Add products](https://github.com/isissi/accuenergy-code-submission/blob/main/public/screenshots/deleteLocation.gif?raw=true "Add products")
+![Add products](https://github.com/isissi/crwn-clothing/blob/main/public/gif/3.gif?raw=true "Add products")
 
 4. Update products in the shopping cart
-![Update products](https://github.com/isissi/accuenergy-code-submission/blob/main/public/screenshots/deleteLocation.gif?raw=true "Update products")
+![Update products](https://github.com/isissi/crwn-clothing/blob/main/public/gif/4.gif?raw=true "Update products")
 
 ## How To Setup
 1. cd into the directory 
